@@ -1,0 +1,39 @@
+<div>
+  <h1>Listing Vehicles</h1>
+  <br/>
+
+  <a href="<%= root_path %>">Home</a>
+
+  <br/>
+  <br/>
+
+  <% if @vehicles.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Model</th>
+          <th>Make</th>
+          <th>Year</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @vehicles.each do |vehicle| %>
+          <tr>
+            <td><%= vehicle.id %></td>
+            <td><%= vehicle.type %></td>
+            <td><%= vehicle.model %></td>
+            <td><%= vehicle.make %></td>
+            <td><%= vehicle.year %></td>
+            <td>
+              <a href="<%= vehicle_path(vehicle) %>">Details</a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

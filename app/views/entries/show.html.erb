@@ -1,0 +1,22 @@
+<div>
+  <h1>Entry Detail</h1>
+  <br/>
+
+  <a href="<%= root_path %>">Home</a> |
+  <a href="<%= entries_path %>">Back To List</a>
+
+</div>
+
+<br/>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Entry ID</td>
+      <td>
+        <%= @entry.id %>
+      </td>
+    </tr>
+    <%= render partial: @entry.entryable_partial, locals: { entryable: @entry.entryable } %>
+  </tbody>
+</table>

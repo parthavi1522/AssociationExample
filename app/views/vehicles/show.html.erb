@@ -1,0 +1,68 @@
+<div>
+  <h1>Vehicle Detail</h1>
+  <br/>
+
+  <a href="<%= root_path %>">Home</a> |
+  <a href="<%= vehicles_path %>">Back To List</a>
+
+</div>
+
+<br/>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Vehicle ID</td>
+      <td>
+        <%= @vehicle.id %>
+      </td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>
+        <%= @vehicle.type %>
+      </td>
+    </tr>
+    <tr>
+      <td>Model</td>
+      <td>
+        <%= @vehicle.model %>
+      </td>
+    </tr>
+    <tr>
+      <td>Make</td>
+      <td>
+        <%= @vehicle.make %>
+      </td>
+    </tr>
+    <tr>
+      <td>Year</td>
+      <td>
+        <%= @vehicle.year %>
+      </td>
+    </tr>
+
+    <% if @vehicle.type == 'Sti::Car' %>
+      <tr>
+        <td>Color</td>
+        <td>
+          <%= @vehicle.color %>
+        </td>
+      </tr>
+    <% elsif @vehicle.type == 'Sti::Truck' %>
+      <tr>
+        <td>Towing Capacity</td>
+        <td>
+          <%= @vehicle.towing_capacity %>
+        </td>
+      </tr>
+    <% elsif @vehicle.type == 'Sti::Motorcycle' %>
+      <tr>
+        <td>Engine Size</td>
+        <td>
+          <%= @vehicle.engine_size %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

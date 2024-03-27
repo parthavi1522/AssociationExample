@@ -1,0 +1,35 @@
+<div>
+  <h1>Listing Entries</h1>
+  <br/>
+
+  <a href="<%= root_path %>">Home</a>
+
+  <br/>
+  <br/>
+
+  <% if @entries.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Type</th>
+          <th>Title</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @entries.each do |entry| %>
+          <tr>
+            <td><%= entry.id %></td>
+            <td><%= entry.entryable_type %></td>
+            <td><%= entry.title %></td>
+            <td>
+              <a href="<%= entry_path(entry) %>">Details</a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

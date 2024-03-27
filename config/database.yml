@@ -1,0 +1,18 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: association_examples_development
+  username: root
+  password: <%= Rails.application.credentials.dig(:development, :database_password) %>
+  host: localhost
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: association_examples_test
+
+production:
+  <<: *default

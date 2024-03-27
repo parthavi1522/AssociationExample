@@ -1,0 +1,84 @@
+<div>
+  <h1>Post Detail</h1>
+  <br/>
+
+  <a href="<%= root_path %>">Home</a> |
+  <a href="<%= posts_path %>">Back To List</a>
+
+</div>
+
+<br/>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>Post ID</td>
+      <td>
+        <%= @post.id %>
+      </td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>
+        <%= @post.title %>
+      </td>
+    </tr>
+    <tr>
+      <td>Content</td>
+      <td>
+        <%= @post.content %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>User</td>
+      <td>
+        <%= @post.user.name %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<% if @post.categories.present? %>
+  <h3><b><u>Post Categories</u></b></h3>
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      <% @post.categories.each do |post| %>
+        <tr>
+          <td>
+            <%= post.id %>
+          </td>
+          <td>
+            <%= post.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @post.comments.present? %>
+  <h3><b><u>Post Comments</u></b></h3>
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Content</th>
+    </thead>
+    <tbody>
+      <% @post.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= comment.id %>
+          </td>
+          <td>
+            <%= comment.content %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

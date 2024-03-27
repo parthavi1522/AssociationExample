@@ -1,0 +1,121 @@
+<div>
+  <h1>User Detail</h1>
+  <br/>
+
+  <a href="<%= root_path %>">Home</a> |
+  <a href="<%= users_path %>">Back To List</a>
+
+</div>
+
+<br/>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>User ID</td>
+      <td>
+        <%= @user.id %>
+      </td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>
+        <%= @user.name %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<% if @user.profile.present? %>
+  <h3><b><u>User Profile</u></b></h3>
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Bio</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= @user.profile.id %>
+        </td>
+        <td>
+          <%= @user.profile.bio %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @user.posts.present? %>
+  <h3><b><u>User Posts</u></b></h3>
+  <table class="table">
+    <thead>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Categories</th>
+    </thead>
+    <tbody>
+      <% @user.posts.each do |post| %>
+        <tr>
+          <td>
+            <%= post.id %>
+          </td>
+          <td>
+            <%= post.title %>
+          </td>
+          <td>
+            <%= post.content %>
+          </td>
+          <td>
+            <%= post.categories.pluck(:name).join(', ') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @user.followers.present? %>
+  <h3><b><u>User Followers</u></b></h3>
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      <% @user.followers.each do |follower| %>
+        <tr>
+          <td>
+            <%= follower.id %>
+          </td>
+          <td>
+            <%= follower.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<% if @user.following.present? %>
+  <h3><b><u>User Following</u></b></h3>
+  <table class="table">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+    </thead>
+    <tbody>
+      <% @user.following.each do |following| %>
+        <tr>
+          <td>
+            <%= following.id %>
+          </td>
+          <td>
+            <%= following.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
