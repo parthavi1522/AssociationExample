@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
   resources :vehicles, only: [:index, :show]
   resources :entries, only: [:index, :show]
+  resources :queries, only: [:index]
 end

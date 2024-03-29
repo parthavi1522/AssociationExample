@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  lock_optimistically
+
   has_one :profile
   has_many :posts
   has_many :categories, through: :posts
